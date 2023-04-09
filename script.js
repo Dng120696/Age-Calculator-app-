@@ -96,18 +96,18 @@ let getMonth = date.getMonth() + 1;//4
 let getDay = date.getDate();//9
 
 
-const months = [31,28,30,31,30,31,30,31,30,31,30,31];//12 length
+const months = [31,28,30,31,30,31,30,31,30,31,30,31];
 
 const handleSumbit = (e) => {
   e.preventDefault();
   if (validate()) {//if true
     if (inputDay.value > getDay) {//12 > 9 = true
-      getDay = getDay + months[getMonth - 1];//40
+      getDay = getDay + months[getMonth - 1]; // 9 + 31 = 40
       getMonth = getMonth - 1;//3
 
     }
-    if (inputMonth.value > getMonth) {//2 > 4 = false
-      getMonth = getMonth + 12; //15
+    if (inputMonth.value > getMonth) {// 12 > 3 = true
+      getMonth = getMonth + 12; //3+12 = 15
       getYear = getYear - 1;//2023 - 1 = 2022
 
      
@@ -115,8 +115,8 @@ const handleSumbit = (e) => {
     }
 
     const day = getDay - inputDay.value;//40 - 12 = 28
-    const month = getMonth - inputMonth.value;// 3 - 2 = 1
-    const year = getYear - inputYear.value; //2023 - 1996 = 27
+    const month = getMonth - inputMonth.value;// 15 - 12 = 3
+    const year = getYear - inputYear.value; //2022 - 1996 = 26
 
     totalDay.innerHTML = day; //28
     totalMonth.innerHTML = month;//3
