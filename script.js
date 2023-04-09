@@ -103,11 +103,12 @@ const handleSumbit = (e) => {
     if (inputDay.value > getDay) {
       getDay = getDay + months[getMonth - 1];
       getMonth = getMonth - 1;//3
-
+      console.log(getDay,getMonth);
     }
     if (inputMonth.value > getMonth) {
       getMonth = getMonth + 12;
       getYear = getYear - 1;
+      console.log(getMonth,getYear);
      
     
     }
