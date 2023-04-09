@@ -50,7 +50,9 @@ function validate() {
                   if(input[i].value < 1 || input[i].value > 31) {
 
                     input[i].parentElement.classList.add('invalid-error');
-                    
+                    if(input[i].parentElement.contains('invalid-error')){
+                      return 0;
+                    }
                     
                   }else{
                     input[i].parentElement.classList.remove('invalid-error');
@@ -62,7 +64,9 @@ function validate() {
              
                     input[i].parentElement.classList.add('invalid-error');
             
-                    
+                    if(input[i].parentElement.contains('invalid-error')){
+                      return 0;
+                    }
                   }else{
                     input[i].parentElement.classList.remove('invalid-error');
                   
@@ -72,7 +76,9 @@ function validate() {
                 if (input[i].id === 'number3'){
                   if(input[i].value < 1 || input[i].value > getYear) {
                     input[i].parentElement.classList.add('invalid-error');
-                    
+                    if(input[i].parentElement.contains('invalid-error')){
+                      return 0;
+                    }
                   }else{
                     input[i].parentElement.classList.remove('invalid-error');
                   
