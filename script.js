@@ -16,14 +16,6 @@ const totalYear = document.querySelector('.total-years');
 
 
 
-const date = new Date();
-let getYear = date.getFullYear();
-let getMonth = date.getMonth() + 1;
-let getDay = date.getDate();
-
-
-const months = [31,28,30,31,30,31,30,31,30,31,30,31];
-
 
 function validate() {
 
@@ -97,30 +89,39 @@ function validate() {
   return validator;
 };
 
+
+const date = new Date();
+let getYear = date.getFullYear();//2023
+let getMonth = date.getMonth() + 1;//4
+let getDay = date.getDate();//9
+
+
+const months = [31,28,30,31,30,31,30,31,30,31,30,31];//12 length
+
 const handleSumbit = (e) => {
   e.preventDefault();
-  if (validate()) {
-    if (inputDay.value > getDay) {
-      getDay = getDay + months[getMonth - 1];
+  if (validate()) {//if true
+    if (inputDay.value > getDay) {//12 > 9 = true
+      getDay = getDay + months[getMonth - 1];//40
       getMonth = getMonth - 1;//3
-      console.log(getDay,getMonth);
+
     }
-    if (inputMonth.value > getMonth) {
-      getMonth = getMonth + 12;
-      getYear = getYear - 1;
-      console.log(getMonth,getYear);
+    if (inputMonth.value > getMonth) {//2 > 4 = false
+      getMonth = getMonth + 12; //15
+      getYear = getYear - 1;//2023 - 1 = 2022
+
      
     
     }
 
-    const day = getDay - inputDay.value;
-    const month = getMonth - inputMonth.value;
-    const year = getYear - inputYear.value;
+    const day = getDay - inputDay.value;//40 - 12 = 28
+    const month = getMonth - inputMonth.value;// 3 - 2 = 1
+    const year = getYear - inputYear.value; //2023 - 1996 = 27
 
-    totalDay.innerHTML = day;
-    totalMonth.innerHTML = month;
-    totalYear.innerHTML = year;
-    // return 0;
+    totalDay.innerHTML = day; //28
+    totalMonth.innerHTML = month;//3
+    totalYear.innerHTML = year;// 26
+
   }
 }
 
